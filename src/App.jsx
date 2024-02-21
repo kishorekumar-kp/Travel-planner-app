@@ -1,8 +1,12 @@
+import TheNavbar from "./components/TheNavbar";
+import { HomePage } from "./pages/HomePage";
+
 function App() {
 
   return (
-  <div className="text-3xl text-orange-900">
-    hello react world
+  <div className="">
+    <TheNavbar/>
+    <HomePage/>
   </div>
   )
 }
