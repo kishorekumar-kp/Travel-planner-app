@@ -16,7 +16,7 @@ export const HomePage = () => {
           </button>
         </div>
         <div className="w-1/2 p-5 items-center h-fit">
-          <img src="../../public/tourimage.webp" alt="tour-img" />
+          <img src="/tourimage.webp" alt="tour-img" />
         </div>
       </div>
     </div>

@@ -1,12 +1,14 @@
+import { Outlet } from "react-router-dom";
 import TheNavbar from "./components/TheNavbar";
-import { HomePage } from "./pages/HomePage";
+// import { HomePage } from "./pages/HomePage";
+
 
 function App() {
 
   return (
   <div className="">
     <TheNavbar/>
-    <HomePage/>
+    <Outlet/>
   </div>
   )
 }
