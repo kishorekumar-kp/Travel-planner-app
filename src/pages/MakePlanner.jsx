@@ -1,29 +1,26 @@
 import { useState } from "react";
-import InputFieLd from "../components/form/InputFieLd";
-import TextareaField from "../components/form/TextareaField";
-import Button from "../components/form/Button";
 import { useForm } from "react-hook-form";
-
+import TextareaField from "../components/form/TextareaField";
+import InputFieLd from "../components/form/InputFieLd";
+import Button from "../components/form/Button";
 const MakePlanner = () => {
-  const [addfield, setAddfield] = useState([]);
+  const [addfield, setAddfield] = useState([""]);
 
   const handleClick = () => {
-    const data = [...addfield, []];
-    setAddfield(data);
+    setAddfield((prev) => [...prev, {}]);
   };
-
-  // const formhandler = (e) => {
-  //   e.preventDefault();
-  // };
 
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const sendInfo = (data) => {
+  const dataSubmit = (data, e) => {
+    e.preventDefault();
     console.log("Getting values from form submit: ", data);
+    reset();
   };
 
   return (
@@ -31,7 +28,7 @@ const MakePlanner = () => {
       <h1 className="text-3xl font-semibold text-center mt-5 pb-3 text-gray-600">
         Make a own travel planner
       </h1>
-      <form action="" onSubmit={handleSubmit(sendInfo)}>
+      <form action="" onSubmit={handleSubmit(dataSubmit)}>
         <div className="max-w-2xl mx-auto text-gray-700 bg-medium py-5 px-10 mb-5">
           <InputFieLd
             name="country"
@@ -48,6 +45,8 @@ const MakePlanner = () => {
 
         <div className="max-w-2xl mx-auto text-gray-700 bg-dark py-5 px-20">
           {addfield.map((filed, index) => {
+            // console.log(filed);
+
             return (
               <div key={index} className="">
                 <p className="text-xl font-semibold py-2 text-center">
@@ -55,42 +54,41 @@ const MakePlanner = () => {
                   Tourist spot place No:{index + 1}
                 </p>
                 <InputFieLd
-                  name="place"
+                  name={`place${index + 1}`}
                   label="Place name"
                   type="text"
                   placeholder="Enter place name here "
-                  register={register("place", {
+                  register={register(`place${index + 1}`, {
                     required: "This filed is required",
                   })}
-                  error={errors.place}
+                  error={errors[`place${index + 1}`]}
                   required
                 />
                 <InputFieLd
-                  name="photo"
+                  name={`photo${index + 1}`}
                   label="Photo"
                   type="text"
                   placeholder="Paste your photo link here!"
-                  register={register("photo", {
+                  register={register(`photo${index + 1}`, {
                     required: "This filed is required",
                   })}
-                  error={errors.photo}
+                  error={errors[`photo${index + 1}`]}
                   required
                 />
                 <TextareaField
-                  name="Description"
+                  name={`description${index + 1}`}
                   label="Description"
                   placeholder="Describe about place here "
-                  register={register("Description", {
+                  register={register(`description${index + 1}`, {
                     required: "This filed is required",
                   })}
-                  error={errors.Description}
+                  error={errors[`description${index + 1}`]}
                   required
                 />
                 <hr className="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded " />
               </div>
             );
           })}
-
           <div className="flex justify-center">
             <div
               className="text-lg p-2 w-fit shadow-2xl cursor-pointer bg-light  rounded flex items-center"
