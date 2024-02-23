@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // import {tourimage} from "../../public/tourimage.webp"
 export const HomePage = () => {
   return (
@@ -11,9 +13,11 @@ export const HomePage = () => {
             You can Build, organize, and map your own itineraries in a free guidence for
             vacations & road trips
           </p>
-          <button className="p-2 px-4 text-xl bg-dark rounded w-fit mt-5">
+          <Link to="./makeplanner">
+          <button className="p-2 px-4 text-xl bg-medium border-2 border-dark rounded w-fit mt-5">
             Make Planning
           </button>
+          </Link>
         </div>
         <div className="w-1/2 p-5 items-center h-fit">
           <img src="/tourimage.webp" alt="tour-img" />
