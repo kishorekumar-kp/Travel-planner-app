@@ -45,7 +45,7 @@ const MakePlanner = () => {
             label="State name"
             type="text"
             placeholder="Enter state name here..."
-            register={register("country", {
+            register={register("state", {
               required: "This filed is required",
             })}
             error={errors.country}

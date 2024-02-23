@@ -30,7 +30,7 @@ const ViewPlanner = () => {
   };
 
   return (
-    <div className="px-40 py-5 grid grid-cols-3 gap-5">
+    <div className="px-40 py-5 grid grid-cols-3 m-auto gap-5">
       {spots.length <= 0 ? (
         <div className="col-span-3">
           <div className="flex flex-col ">
@@ -82,7 +82,7 @@ const ViewPlanner = () => {
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 capitalize">
                   {spot.place}
                   <span className="text-sm font-light italic pl-2 capitalize">
-                    {spot.country}
+                    {spot.state}
                   </span>
                 </h5>
                 <p className="mb-3 font-normal text-justify text-gray-900">
