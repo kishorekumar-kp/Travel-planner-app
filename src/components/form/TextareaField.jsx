@@ -1,6 +1,6 @@
 import propTypes from "prop-types";
 
-const TextareaField = ({ name,label, placeholder,register, error }) => {
+const TextareaField = ({ name,label, placeholder,register,error, cols ,rows}) => {
   return (
     <div>
       <div>
@@ -10,8 +10,8 @@ const TextareaField = ({ name,label, placeholder,register, error }) => {
           </label>
           <textarea
             name={name}
-            cols="30"
-            rows="4"
+            cols={cols}
+            rows={rows}
             id={name}
             placeholder={placeholder}
             {...register}
@@ -28,6 +28,8 @@ TextareaField.propTypes = {
   label: propTypes.string,
   name: propTypes.string,
   type: propTypes.string,
+  cols: propTypes.string,
+  rows: propTypes.string,
   placeholder: propTypes.string,
   register: propTypes.object,
   error: propTypes.object,

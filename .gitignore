@@ -9,8 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist-ssr
-copyMakePlanner.jsx
-copyMkePlanner2.jsx
+copy
 *.local
 
 # Editor directories and files
